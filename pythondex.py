@@ -1,16 +1,32 @@
 from __future__ import print_function
-import json
-import sys; 
-from PIL import Image; 
+from PIL import Image
+from dex import get_pokemon_data, get_pokemon_learnset, get_move
 import numpy as np
-import os
+import sys, os
+
+def check_pokedex():
+    print('Testing integrity data, please wait...')
+    data = []
+    for pokemon in get_pokemon_data().keys():
+        learnset = get_pokemon_learnset(str(pokemon))
+        if learnset is not None:
+            for move in learnset:
+                try:
+                    get_move(move)['name']
+                except:
+                    if move not in data:
+                        data.append(move)
+    print('These attack are not in dex: ')
+    print(data)
+
+# Args
+argumentos = sys.argv
+if 'check' in argumentos:
+    check_pokedex()
+    exit()
 
 
-pokedex_on = True
-poke_data = {}
-with open('dex.json') as f:
-    poke_data = json.load(f)
-
+#Asscinator setup
 chars = np.asarray(list(' .,:;irsXA253hMHGS#9B&@'))
 f = ''
 SC = float(0.15)
@@ -19,15 +35,17 @@ WCF = 7.0/4.0
 
 print ("Bienvenido")
 name_pokemon = ""
+
+
+pokedex_on = True
 while(pokedex_on):
-    name_pokemon = str(input("Ingrese el nombre del pokemon: "))
+    name_pokemon = input("Ingrese el nombre del Pokémon: ")
     name_pokemon = name_pokemon.lower()
     os.system('clear')
-    if name_pokemon in poke_data:
-        pokemon = poke_data[name_pokemon]
+    pokemon = get_pokemon_data(name_pokemon)
 
-        # Integracion de asciinator
-        # para mostrar imagen ascii del pokemon
+    if pokemon is not None:
+        # Integracion de asciinator para mostrar imagen ascii del pokemon
         f = 'pokemon_images/'+ '{:04d}'.format(pokemon['num'])+'.png'
         img_pokemon = Image.open(f)
         S = (int(img_pokemon.size[0]*SC*WCF), int(img_pokemon.size[1]*SC))
@@ -39,16 +57,16 @@ while(pokedex_on):
         print()
 
         # Muestra los datos principales del pokemon
-        print ("Numero del pokemon: ", pokemon['num'])
+        print ("Numero del Pokémon: ", pokemon['num'])
         print ("Sus tipos son: ")
-        for t in pokemon["types"]:
-            print("  - ",t)
+        for pokemon_type in pokemon["types"]:
+            print("  - ",pokemon_type)
         if "genderRatio" in pokemon:
-            print("Posibilidad de aparicion segun genero: ")
+            print("Posibilidad de aparición según género: ")
             print("  - Macho = ", (pokemon["genderRatio"]["M"] * 100), "%")
             print("  - Hembra = ",(pokemon["genderRatio"]["F"] * 100), "%")
         elif "gender" in pokemon:
-            print("Genero unico:")
+            print("Género único:")
             if pokemon["gender"] == "N":
                 print("  - Neutral")
 
@@ -59,19 +77,23 @@ while(pokedex_on):
                 print("  - Macho")
         
         if "evos" in pokemon:
-            print("Siguiente evolucion: ")
+            print("Siguiente evolución: ")
             for evo in pokemon["evos"]:
-                pokemon_evo = poke_data[evo]
+                pokemon_evo = get_pokemon_data(evo)
                 print("  - ", pokemon_evo["species"])
 
                
 
         if "otherFormes" in pokemon:
-            print("Otras formas del pokemon: ")
+            print("Otras formas del Pokémon: ")
             for other_form in pokemon["otherFormes"]:
-                form_pokemon = poke_data[other_form]                
+                form_pokemon = get_pokemon_data(other_form)                
                 new_name_pokemon = str(form_pokemon["species"]).split('-')
                 print ("  - ", new_name_pokemon[1], new_name_pokemon[0])
+        print('Movimientos que puede aprender el pokémon: ')
+        #for move in get_pokemon_learnset(name_pokemon):
+
+            #print('  - ', str(get_move(move)['name']))
     else:
         print("Pokemon no encontrado :(")
 

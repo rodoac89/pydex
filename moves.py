@@ -1073,701 +1073,723 @@ def get_move(move):
                 "mystery": 1
             },
         },
-            "bide": {
-                "num": 117,
-                "accuracy": True,
-                "basePower": 0,
-                "category": "Physical",
-                "desc": "The user spends two turns locked into this move and then, on the second turn after using this move, the user attacks the last Pokemon that hit it, inflicting double the damage in HP it lost to attacks during the two turns. If the last Pokemon that hit it is no longer active, the user attacks a random opposing Pokemon instead. If the user is prevented from moving during this move's use, the effect ends. This move does not check 'accuracy' and does not ignore type immunity.",
-                "shortDesc": "Waits 2 turns; deals double the damage taken.",
-                "id": "bide",
-                "name": "Bide",
-                "pp": 10,
-                "priority": 1,
-                "flags": {
-                    "contact": 1,
-                    "protect": 1
-                },
-                "volatileStatus": "bide",
-                "ignoreImmunity": True,
-                "chargebeam": {
-                    "num": 451,
-                    "accuracy": 90,
-                    "basePower": 50,
-                    "category": "Special",
-                    "desc": "Has a 70% chance to raise the user's Special Attack by 1 stage.",
-                    "shortDesc": "70% chance to raise the user's Sp. Atk by 1.",
-                    "id": "chargebeam",
-                    "name": "Charge Beam",
-                    "pp": 10,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "secondary": {
-                        "chance": 70
-                    },
-                    "target": "normal",
-                    "type": "Electric",
-                    "zMovePower": 100,
-                    "contestType": "Beautiful"
-                },
-                "charm": {
-                    "num": 204,
-                    "accuracy": 100,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "Lowers the target's Attack by 2 stages.",
-                    "shortDesc": "Lowers the target's Attack by 2.",
-                    "id": "charm",
-                    "name": "Charm",
-                    "pp": 20,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "reflectable": 1,
-                        "mirror": 1,
-                        "mystery": 1
-                    },
-                    "boosts": {
-                        "atk": -2
-                    },
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Fairy",
-                    "zMoveBoost": {
-                        "def": 1
-                    },
-                    "contestType": "Cute"
-                },
-                "chatter": {
-                    "num": 448,
-                    "accuracy": 100,
-                    "basePower": 65,
-                    "category": "Special",
-                    "desc": "Has a 100% chance to confuse the target.",
-                    "shortDesc": "100% chance to confuse the target.",
-                    "id": "chatter",
-                    "isViable": True,
-                    "name": "Chatter",
-                    "pp": 20,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "mirror": 1,
-                        "sound": 1,
-                        "distance": 1,
-                        "authentic": 1
-                    },
-                    "noSketch": True,
-                    "secondary": {
-                        "chance": 100,
-                        "volatileStatus": "confusion",
-                    },
-                    "target": "any",
-                    "type": "Flying",
-                    "zMovePower": 120,
-                    "contestType": "Cute"
-                },
-                "chipaway": {
-                    "num": 498,
-                    "accuracy": 100,
-                    "basePower": 70,
-                    "category": "Physical",
-                    "desc": "Ignores the target's stat stage changes, including evasiveness.",
-                    "shortDesc": "Ignores the target's stat stage changes.",
-                    "id": "chipaway",
-                    "name": "Chip Away",
-                    "pp": 20,
-                    "priority": 0,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "ignoreDefensive": True,
-                    "ignoreEvasion": True,
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Normal",
-                    "zMovePower": 140,
-                    "contestType": "Tough"
-                },
-                "circlethrow": {
-                    "num": 509,
-                    "accuracy": 90,
-                    "basePower": 60,
-                    "category": "Physical",
-                    "desc": "If both the user and the target have not fainted, the target is forced to switch out and be replaced with a random unfainted ally. This effect fails if the target is under the effect of Ingrain, has the Suction Cups Ability, or this move hit a substitute.",
-                    "shortDesc": "Forces the target to switch to a random ally.",
-                    "id": "circlethrow",
-                    "isViable": True,
-                    "name": "Circle Throw",
-                    "pp": 10,
-                    "priority": -6,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "forceSwitch": True,
-                    "target": "normal",
-                    "type": "Fighting",
-                    "zMovePower": 120,
-                    "contestType": "Cool"
-                },
-                "clamp": {
-                    "num": 128,
-                    "accuracy": 85,
-                    "basePower": 35,
-                    "category": "Physical",
-                    "desc": "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
-                    "shortDesc": "Traps and damages the target for 4-5 turns.",
-                    "id": "clamp",
-                    "name": "Clamp",
-                    "pp": 15,
-                    "priority": 0,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "volatileStatus": "partiallytrapped",
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Water",
-                    "zMovePower": 100,
-                    "contestType": "Tough"
-                },
-                "clangingscales": {
-                    "num": 691,
-                    "accuracy": 100,
-                    "basePower": 110,
-                    "category": "Special",
-                    "desc": "Lowers the user's Defense by 1 stage.",
-                    "shortDesc": "Lowers the user's Defense by 1.",
-                    "id": "clangingscales",
-                    "isViable": True,
-                    "name": "Clanging Scales",
-                    "pp": 5,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "mirror": 1,
-                        "sound": 1,
-                        "authentic": 1
-                    },
-                    "selfBoost": {
-                        "boosts": {
-                            "def": -1,
-                        },
-                    },
-                    "secondary": None,
-                    "target": "allAdjacentFoes",
-                    "type": "Dragon",
-                    "zMovePower": 185,
-                    "contestType": "Tough"
-                },
-                "clangoroussoulblaze": {
-                    "num": 728,
-                    "accuracy": True,
-                    "basePower": 185,
-                    "category": "Special",
-                    "desc": "Raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
-                    "shortDesc": "Raises the user's Atk/Def/SpAtk/SpDef/Spe by 1.",
-                    "id": "clangoroussoulblaze",
-                    "name": "Clangorous Soulblaze",
-                    "pp": 1,
-                    "priority": 0,
-                    "flags": {
-                        "sound": 1,
-                        "authentic": 1
-                    },
-                    "selfBoost": {
-                        "boosts": {
-                            "atk": 1,
-                            "def": 1,
-                            "spa": 1,
-                            "spd": 1,
-                            "spe": 1
-                        },
-                    },
-                    "isZ": "kommoniumz",
-                    "target": "allAdjacentFoes",
-                    "type": "Dragon",
-                    "contestType": "Cool"
-                },
-                "clearsmog": {
-                    "num": 499,
-                    "accuracy": True,
-                    "basePower": 50,
-                    "category": "Special",
-                    "shortDesc": "Resets all of the target's stat stages to 0.",
-                    "id": "clearsmog",
-                    "isViable": True,
-                    "name": "Clear Smog",
-                    "pp": 15,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Poison",
-                    "zMovePower": 100,
-                    "contestType": "Beautiful"
-                },
-                "closecombat": {
-                    "num": 370,
-                    "accuracy": 100,
-                    "basePower": 120,
-                    "category": "Physical",
-                    "desc": "Lowers the user's Defense and Special Defense by 1 stage.",
-                    "shortDesc": "Lowers the user's Defense and Sp. Def by 1.",
-                    "id": "closecombat",
-                    "isViable": True,
-                    "name": "Close Combat",
-                    "pp": 5,
-                    "priority": 0,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "self": {
-                        "boosts": {
-                            "def": -1,
-                            "spd": -1
-                        },
-                    },
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Fighting",
-                    "zMovePower": 190,
-                    "contestType": "Tough"
-                },
-                "coil": {
-                    "num": 489,
-                    "accuracy": True,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "Raises the user's Attack, Defense, and 'accuracy' by 1 stage.",
-                    "shortDesc": "Raises user's Attack, Defense, 'accuracy' by 1.",
-                    "id": "coil",
-                    "isViable": True,
-                    "name": "Coil",
-                    "pp": 20,
-                    "priority": 0,
-                    "flags": {
-                        "snatch": 1
-                    },
-                    "boosts": {
-                        "atk": 1,
-                        "def": 1,
-                        "accuracy": 1
-                    },
-                    "secondary": None,
-                    "target": "self",
-                    "type": "Poison",
-                    "zMoveEffect": "clearnegativeboost",
-                    "contestType": "Tough"
-                },
-                "cometpunch": {
-                    "num": 4,
-                    "accuracy": 85,
-                    "basePower": 18,
-                    "category": "Physical",
-                    "desc": "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
-                    "shortDesc": "Hits 2-5 times in one turn.",
-                    "id": "cometpunch",
-                    "name": "Comet Punch",
-                    "pp": 15,
-                    "priority": 0,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1,
-                        "powder": 1
-                    },
-                    "multihit": [
-                        2,
-                        5
-                    ],
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Normal",
-                    "zMovePower": 100,
-                    "contestType": "Tough"
-                },
-                "confide": {
-                    "num": 590,
-                    "accuracy": True,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "Lowers the target's Special Attack by 1 stage.",
-                    "shortDesc": "Lowers the target's Sp. Atk by 1.",
-                    "id": "confide",
-                    "name": "Confide",
-                    "pp": 20,
-                    "priority": 0,
-                    "flags": {
-                        "reflectable": 1,
-                        "mirror": 1,
-                        "sound": 1,
-                        "authentic": 1
-                    },
-                    "boosts": {
-                        "spa": -1,
-                    },
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Normal",
-                    "zMoveBoost": {
-                        "spd": 1
-                    },
-                    "contestType": "Cute"
-                },
-                "confuseray": {
-                    "num": 109,
-                    "accuracy": 100,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "Causes the target to become confused.",
-                    "shortDesc": "Confuses the target.",
-                    "id": "confuseray",
-                    "name": "Confuse Ray",
-                    "pp": 10,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "reflectable": 1,
-                        "mirror": 1
-                    },
-                    "volatileStatus": "confusion",
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Ghost",
-                    "zMoveBoost": {
-                        "spa": 1
-                    },
-                    "contestType": "Clever"
-                },
-                "confusion": {
-                    "num": 93,
-                    "accuracy": 100,
-                    "basePower": 50,
-                    "category": "Special",
-                    "desc": "Has a 10% chance to confuse the target.",
-                    "shortDesc": "10% chance to confuse the target.",
-                    "id": "confusion",
-                    "name": "Confusion",
-                    "pp": 25,
-                    "priority": 0,
-                    "flags": {
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "secondary": {
-                        "chance": 10,
-                        "volatileStatus": "confusion",
-                    },
-                    "target": "normal",
-                    "type": "Psychic",
-                    "zMovePower": 100,
-                    "contestType": "Clever"
-                },
-                "constrict": {
-                    "num": 132,
-                    "accuracy": 100,
-                    "basePower": 10,
-                    "category": "Physical",
-                    "desc": "Has a 10% chance to lower the target's Speed by 1 stage.",
-                    "shortDesc": "10% chance to lower the target's Speed by 1.",
-                    "id": "constrict",
-                    "name": "Constrict",
-                    "pp": 35,
-                    "priority": 0,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "secondary": {
-                        "chance": 10,
-                        "boosts": {
-                            "spe": -1,
-                        },
-                    },
-                    "target": "normal",
-                    "type": "Normal",
-                    "zMovePower": 100,
-                    "contestType": "Tough"
-                },
-                "continentalcrush": {
-                    "num": 632,
-                    "accuracy": True,
-                    "basePower": 1,
-                    "category": "Physical",
-                    "shortDesc": "Power is equal to the base move's Z-Power.",
-                    "id": "continentalcrush",
-                    "isViable": True,
-                    "name": "Continental Crush",
-                    "pp": 1,
-                    "priority": 0,
-                    "flags": {},
-                    "isZ": "rockiumz",
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Rock",
-                    "contestType": "Cool"
-                },
-                "conversion": {
-                    "num": 160,
-                    "accuracy": True,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "The user's type changes to match the original type of the move in its first move slot. Fails if the user cannot change its type, or if the type is one of the user's current types.",
-                    "shortDesc": "Changes user's type to match its first move.",
-                    "id": "conversion",
-                    "name": "Conversion",
-                    "pp": 30,
-                    "priority": 0,
-                    "flags": {
-                        "snatch": 1
-                    },
-                    "secondary": None,
-                    "target": "self",
-                    "type": "Normal",
-                    "zMoveBoost": {
-                        "atk": 1,
-                        "def": 1,
-                        "spa": 1,
-                        "spd": 1,
-                        "spe": 1
-                    },
-                    "contestType": "Beautiful"
-                },
-                "conversion2": {
-                    "num": 176,
-                    "accuracy": True,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "The user's type changes to match a type that resists or is immune to the type of the last move used by the target, but not either of its current types. The determined type of the move is used rather than the original type. Fails if the target has not made a move, if the user cannot change its type, or if this move would only be able to select one of the user's current types.",
-                    "shortDesc": "Changes user's type to resist target's last move.",
-                    "id": "conversion2",
-                    "name": "Conversion 2",
-                    "pp": 30,
-                    "priority": 0,
-                    "flags": {
-                        "authentic": 1
-                    },
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Normal",
-                    "zMoveEffect": "heal",
-                    "contestType": "Beautiful"
-                },
-                "copycat": {
-                    "num": 383,
-                    "accuracy": True,
-                    "basePower": 0,
-                    "category": "Status",
-                    "desc": "The user uses the last move used by any Pokemon, including itself. Fails if no move has been used, or if the last move used was Assist, Baneful Bunker, Beak Blast, Belch, Bestow, Celebrate, Chatter, Circle Throw, Copycat, Counter, Covet, Destiny Bond, Detect, Dragon Tail, Endure, Feint, Focus Punch, Follow Me, Helping Hand, Hold Hands, King's Shield, Mat Block, Me First, Metronome, Mimic, Mirror Coat, Mirror Move, Nature Power, Protect, Rage Powder, Roar, Shell Trap, Sketch, Sleep Talk, Snatch, Spiky Shield, Spotlight, Struggle, Switcheroo, Thief, Transform, Trick, Whirlwind, or any Z - Move.",
-                    "shortDesc": "Uses the last move used in the battle.",
-                    "id": "copycat",
-                    "name": "Copycat",
-                    "pp": 20,
-                    "priority": 0,
-                    "flags": {},
-                },
-                "secondary": None,
-                "target": "self",
-                "type": "Normal",
-                "zMoveBoost": {
-                    "accuracy": 1
-                },
-                "contestType": "Cute"
+        "bide": {
+            "num": 117,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Physical",
+            "desc": "The user spends two turns locked into this move and then, on the second turn after using this move, the user attacks the last Pokemon that hit it, inflicting double the damage in HP it lost to attacks during the two turns. If the last Pokemon that hit it is no longer active, the user attacks a random opposing Pokemon instead. If the user is prevented from moving during this move's use, the effect ends. This move does not check 'accuracy' and does not ignore type immunity.",
+            "shortDesc": "Waits 2 turns; deals double the damage taken.",
+            "id": "bide",
+            "name": "Bide",
+            "pp": 10,
+            "priority": 1,
+            "flags": {
+                "contact": 1,
+                "protect": 1
             },
-            "coreenforcer": {
-                "num": 687,
-                "accuracy": 100,
-                "basePower": 100,
-                "category": "Special",
-                "desc": "If the user moves after the target, the target's Ability is rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is Battle Bond, Comatose, Disguise, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode, this effect does not happen, and receiving the effect through Baton Pass ends the effect immediately.",
-                "shortDesc": "Noneifies the foe(s) Ability if the foe(s) move first.",
-                "id": "coreenforcer",
-                "isViable": True,
-                "name": "Core Enforcer",
-                "pp": 10,
-                "priority": 0,
-                "flags": {
-                    "protect": 1,
-                    "mirror": 1
-                },
-                "secondary": None,
-                "target": "allAdjacentFoes",
-                "type": "Dragon",
-                "zMovePower": 140,
-                "contestType": "Tough"
+            "volatileStatus": "bide",
+            "ignoreImmunity": True,
+        },
+        "bodyslam": {
+            "num": 34,
+            "accuracy": 100,
+            "basePower": 85,
+            "category": "Physical",
+            "desc": "Has a 30% chance to paralyze the target. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
+            "shortDesc": "30% chance to paralyze the target.",
+            "id": "bodyslam",
+            "isViable": True,
+            "name": "Body Slam",
+            "pp": 15,
+            "priority": 0,
+            "flags": {"contact": 1, "protect": 1, "mirror": 1, "nonsky": 1},
+            "secondary": {
+                "chance": 30,
+                "status": 'par',
             },
-            "corkscrewcrash": {
-                "num": 638,
-                "accuracy": True,
-                "basePower": 1,
-                "category": "Physical",
-                "shortDesc": "Power is equal to the base move's Z-Power.",
-                "id": "corkscrewcrash",
-                "isViable": True,
-                "name": "Corkscrew Crash",
-                "pp": 1,
-                "priority": 0,
-                "flags": {},
-                "isZ": "steeliumz",
-                "secondary": None,
-                "target": "normal",
-                "type": "Steel",
-                "contestType": "Cool"
+            "target": "normal",
+            "type": "Normal",
+            "zMovePower": 160,
+            "contestType": "Tough",
+        },
+        "chargebeam": {
+            "num": 451,
+            "accuracy": 90,
+            "basePower": 50,
+            "category": "Special",
+            "desc": "Has a 70% chance to raise the user's Special Attack by 1 stage.",
+            "shortDesc": "70% chance to raise the user's Sp. Atk by 1.",
+            "id": "chargebeam",
+            "name": "Charge Beam",
+            "pp": 10,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "mirror": 1
             },
-            "cosmicpower": {
-                "num": 322,
-                "accuracy": True,
-                "basePower": 0,
-                "category": "Status",
-                "desc": "Raises the user's Defense and Special Defense by 1 stage.",
-                "shortDesc": "Raises the user's Defense and Sp. Def by 1.",
-                "id": "cosmicpower",
-                "name": "Cosmic Power",
-                "pp": 20,
-                "priority": 0,
-                "flags": {
-                    "snatch": 1
-                },
+            "secondary": {
+                "chance": 70
+            },
+            "target": "normal",
+            "type": "Electric",
+            "zMovePower": 100,
+            "contestType": "Beautiful"
+        },
+        "charm": {
+            "num": 204,
+            "accuracy": 100,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Lowers the target's Attack by 2 stages.",
+            "shortDesc": "Lowers the target's Attack by 2.",
+            "id": "charm",
+            "name": "Charm",
+            "pp": 20,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "reflectable": 1,
+                "mirror": 1,
+                "mystery": 1
+            },
+            "boosts": {
+                "atk": -2
+            },
+            "secondary": None,
+            "target": "normal",
+            "type": "Fairy",
+            "zMoveBoost": {
+                "def": 1
+            },
+            "contestType": "Cute"
+        },
+        "chatter": {
+            "num": 448,
+            "accuracy": 100,
+            "basePower": 65,
+            "category": "Special",
+            "desc": "Has a 100% chance to confuse the target.",
+            "shortDesc": "100% chance to confuse the target.",
+            "id": "chatter",
+            "isViable": True,
+            "name": "Chatter",
+            "pp": 20,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "mirror": 1,
+                "sound": 1,
+                "distance": 1,
+                "authentic": 1
+            },
+            "noSketch": True,
+            "secondary": {
+                "chance": 100,
+                "volatileStatus": "confusion",
+            },
+            "target": "any",
+            "type": "Flying",
+            "zMovePower": 120,
+            "contestType": "Cute"
+        },
+        "chipaway": {
+            "num": 498,
+            "accuracy": 100,
+            "basePower": 70,
+            "category": "Physical",
+            "desc": "Ignores the target's stat stage changes, including evasiveness.",
+            "shortDesc": "Ignores the target's stat stage changes.",
+            "id": "chipaway",
+            "name": "Chip Away",
+            "pp": 20,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+            "ignoreDefensive": True,
+            "ignoreEvasion": True,
+            "secondary": None,
+            "target": "normal",
+            "type": "Normal",
+            "zMovePower": 140,
+            "contestType": "Tough"
+        },
+        "circlethrow": {
+            "num": 509,
+            "accuracy": 90,
+            "basePower": 60,
+            "category": "Physical",
+            "desc": "If both the user and the target have not fainted, the target is forced to switch out and be replaced with a random unfainted ally. This effect fails if the target is under the effect of Ingrain, has the Suction Cups Ability, or this move hit a substitute.",
+            "shortDesc": "Forces the target to switch to a random ally.",
+            "id": "circlethrow",
+            "isViable": True,
+            "name": "Circle Throw",
+            "pp": 10,
+            "priority": -6,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+            "forceSwitch": True,
+            "target": "normal",
+            "type": "Fighting",
+            "zMovePower": 120,
+            "contestType": "Cool"
+        },
+        "clamp": {
+            "num": 128,
+            "accuracy": 85,
+            "basePower": 35,
+            "category": "Physical",
+            "desc": "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Parting Shot, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+            "shortDesc": "Traps and damages the target for 4-5 turns.",
+            "id": "clamp",
+            "name": "Clamp",
+            "pp": 15,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+            "volatileStatus": "partiallytrapped",
+            "secondary": None,
+            "target": "normal",
+            "type": "Water",
+            "zMovePower": 100,
+            "contestType": "Tough"
+        },
+        "clangingscales": {
+            "num": 691,
+            "accuracy": 100,
+            "basePower": 110,
+            "category": "Special",
+            "desc": "Lowers the user's Defense by 1 stage.",
+            "shortDesc": "Lowers the user's Defense by 1.",
+            "id": "clangingscales",
+            "isViable": True,
+            "name": "Clanging Scales",
+            "pp": 5,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "mirror": 1,
+                "sound": 1,
+                "authentic": 1
+            },
+            "selfBoost": {
                 "boosts": {
+                    "def": -1,
+                },
+            },
+            "secondary": None,
+            "target": "allAdjacentFoes",
+            "type": "Dragon",
+            "zMovePower": 185,
+            "contestType": "Tough"
+        },
+        "clangoroussoulblaze": {
+            "num": 728,
+            "accuracy": True,
+            "basePower": 185,
+            "category": "Special",
+            "desc": "Raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
+            "shortDesc": "Raises the user's Atk/Def/SpAtk/SpDef/Spe by 1.",
+            "id": "clangoroussoulblaze",
+            "name": "Clangorous Soulblaze",
+            "pp": 1,
+            "priority": 0,
+            "flags": {
+                "sound": 1,
+                "authentic": 1
+            },
+            "selfBoost": {
+                "boosts": {
+                    "atk": 1,
                     "def": 1,
+                    "spa": 1,
                     "spd": 1,
+                    "spe": 1
                 },
-                "secondary": None,
-                "target": "self",
-                "type": "Psychic",
-                "zMoveBoost": {
-                    "spd": 1
-                },
-                "contestType": "Beautiful"
             },
-            "cottonguard": {
-                "num": 538,
-                "accuracy": True,
-                "basePower": 0,
-                "category": "Status",
-                "desc": "Raises the user's Defense by 3 stages.",
-                "shortDesc": "Raises the user's Defense by 3.",
-                "id": "cottonguard",
-                "isViable": True,
-                "name": "Cotton Guard",
-                "pp": 10,
-                "priority": 0,
-                "flags": {
-                    "snatch": 1
-                },
+            "isZ": "kommoniumz",
+            "target": "allAdjacentFoes",
+            "type": "Dragon",
+            "contestType": "Cool"
+        },
+        "clearsmog": {
+            "num": 499,
+            "accuracy": True,
+            "basePower": 50,
+            "category": "Special",
+            "shortDesc": "Resets all of the target's stat stages to 0.",
+            "id": "clearsmog",
+            "isViable": True,
+            "name": "Clear Smog",
+            "pp": 15,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "mirror": 1
+            },
+            "secondary": None,
+            "target": "normal",
+            "type": "Poison",
+            "zMovePower": 100,
+            "contestType": "Beautiful"
+        },
+        "closecombat": {
+            "num": 370,
+            "accuracy": 100,
+            "basePower": 120,
+            "category": "Physical",
+            "desc": "Lowers the user's Defense and Special Defense by 1 stage.",
+            "shortDesc": "Lowers the user's Defense and Sp. Def by 1.",
+            "id": "closecombat",
+            "isViable": True,
+            "name": "Close Combat",
+            "pp": 5,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+            "self": {
                 "boosts": {
-                    "def": 3,
+                    "def": -1,
+                    "spd": -1
                 },
-                "secondary": None,
-                "target": "self",
-                "type": "Grass",
-                "zMoveEffect": "clearnegativeboost",
-                "contestType": "Cute"
             },
-            "cottonspore": {
-                "num": 178,
-                "accuracy": 100,
-                "basePower": 0,
-                "category": "Status",
-                "desc": "Lowers the target's Speed by 2 stages.",
-                "shortDesc": "Lowers the target's Speed by 2.",
-                "id": "cottonspore",
-                "name": "Cotton Spore",
-                "pp": 40,
-                "priority": 0,
-                "flags": {
-                    "powder": 1,
-                    "protect": 1,
-                    "reflectable": 1,
-                    "mirror": 1
-                },
+            "secondary": None,
+            "target": "normal",
+            "type": "Fighting",
+            "zMovePower": 190,
+            "contestType": "Tough"
+        },
+        "coil": {
+            "num": 489,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Raises the user's Attack, Defense, and 'accuracy' by 1 stage.",
+            "shortDesc": "Raises user's Attack, Defense, 'accuracy' by 1.",
+            "id": "coil",
+            "isViable": True,
+            "name": "Coil",
+            "pp": 20,
+            "priority": 0,
+            "flags": {
+                "snatch": 1
+            },
+            "boosts": {
+                "atk": 1,
+                "def": 1,
+                "accuracy": 1
+            },
+            "secondary": None,
+            "target": "self",
+            "type": "Poison",
+            "zMoveEffect": "clearnegativeboost",
+            "contestType": "Tough"
+        },
+        "cometpunch": {
+            "num": 4,
+            "accuracy": 85,
+            "basePower": 18,
+            "category": "Physical",
+            "desc": "Hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
+            "shortDesc": "Hits 2-5 times in one turn.",
+            "id": "cometpunch",
+            "name": "Comet Punch",
+            "pp": 15,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1,
+                "powder": 1
+            },
+            "multihit": [
+                2,
+                5
+            ],
+            "secondary": None,
+            "target": "normal",
+            "type": "Normal",
+            "zMovePower": 100,
+            "contestType": "Tough"
+        },
+        "confide": {
+            "num": 590,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Lowers the target's Special Attack by 1 stage.",
+            "shortDesc": "Lowers the target's Sp. Atk by 1.",
+            "id": "confide",
+            "name": "Confide",
+            "pp": 20,
+            "priority": 0,
+            "flags": {
+                "reflectable": 1,
+                "mirror": 1,
+                "sound": 1,
+                "authentic": 1
+            },
+            "boosts": {
+                "spa": -1,
+            },
+            "secondary": None,
+            "target": "normal",
+            "type": "Normal",
+            "zMoveBoost": {
+                "spd": 1
+            },
+            "contestType": "Cute"
+        },
+        "confuseray": {
+            "num": 109,
+            "accuracy": 100,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Causes the target to become confused.",
+            "shortDesc": "Confuses the target.",
+            "id": "confuseray",
+            "name": "Confuse Ray",
+            "pp": 10,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "reflectable": 1,
+                "mirror": 1
+            },
+            "volatileStatus": "confusion",
+            "secondary": None,
+            "target": "normal",
+            "type": "Ghost",
+            "zMoveBoost": {
+                "spa": 1
+            },
+            "contestType": "Clever"
+        },
+        "confusion": {
+            "num": 93,
+            "accuracy": 100,
+            "basePower": 50,
+            "category": "Special",
+            "desc": "Has a 10% chance to confuse the target.",
+            "shortDesc": "10% chance to confuse the target.",
+            "id": "confusion",
+            "name": "Confusion",
+            "pp": 25,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "mirror": 1
+            },
+            "secondary": {
+                "chance": 10,
+                "volatileStatus": "confusion",
+            },
+            "target": "normal",
+            "type": "Psychic",
+            "zMovePower": 100,
+            "contestType": "Clever"
+        },
+        "constrict": {
+            "num": 132,
+            "accuracy": 100,
+            "basePower": 10,
+            "category": "Physical",
+            "desc": "Has a 10% chance to lower the target's Speed by 1 stage.",
+            "shortDesc": "10% chance to lower the target's Speed by 1.",
+            "id": "constrict",
+            "name": "Constrict",
+            "pp": 35,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+            "secondary": {
+                "chance": 10,
                 "boosts": {
-                    "spe": -2,
-                },
-                "secondary": None,
-                "target": "allAdjacentFoes",
-                "type": "Grass",
-                "zMoveEffect": "clearnegativeboost",
-                "contestType": "Beautiful"
-            },
-            "counter": {
-                "num": 68,
-                "accuracy": 100,
-                "basePower": 0,
-                "category": "Physical",
-                "desc": "Deals damage to the last opposing Pokemon to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If the user did not lose HP from the attack, this move deals 1 HP of damage instead. If that opposing Pokemon's position is no longer in use and there is another opposing Pokemon on the field the damage is done to it instead.Only the last hit of a multi - hit attack is counted. Fails if the user was not hit by an opposing Pokemon's physical attack this turn.",
-                "shortDesc": "If hit by physical attack, returns double damage.",
-                "id": "counter",
-                "name": "Counter",
-                "pp": 20,
-                "priority": -5,
-                "flags": {
-                    "contact": 1,
-                    "protect": 1
-                },
-                "secondary": None,
-                "target": "scripted",
-                "type": "Fighting",
-                "zMovePower": 100,
-                "contestType": "Tough"
-            },
-            "covet": {
-                "num": 343,
-                "accuracy": 100,
-                "basePower": 60,
-                "category": "Physical",
-                "desc": "If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
-                "shortDesc": "If the user has no item, it steals the target's.",
-                "id": "covet",
-                "name": "Covet",
-                "pp": 25,
-                "priority": 0,
-                "flags": {
-                    "contact": 1,
-                    "protect": 1,
-                    "mirror": 1
+                    "spe": -1,
                 },
             },
-                "crabhammer": {
-                    "num": 152,
-                    "accuracy": 90,
-                    "basePower": 100,
-                    "category": "Physical",
-                    "desc": "Has a higher chance for a critical hit.",
-                    "shortDesc": "High critical hit ratio.",
-                    "id": "crabhammer",
-                    "isViable": True,
-                    "name": "Crabhammer",
-                    "pp": 10,
-                    "priority": 0,
-                    "flags": {
-                        "contact": 1,
-                        "protect": 1,
-                        "mirror": 1
-                    },
-                    "critRatio": 2,
-                    "secondary": None,
-                    "target": "normal",
-                    "type": "Water",
-                    "zMovePower": 180,
-                    "contestType": "Tough"
-                },
+            "target": "normal",
+            "type": "Normal",
+            "zMovePower": 100,
+            "contestType": "Tough"
+        },
+        "continentalcrush": {
+            "num": 632,
+            "accuracy": True,
+            "basePower": 1,
+            "category": "Physical",
+            "shortDesc": "Power is equal to the base move's Z-Power.",
+            "id": "continentalcrush",
+            "isViable": True,
+            "name": "Continental Crush",
+            "pp": 1,
+            "priority": 0,
+            "flags": {},
+            "isZ": "rockiumz",
+            "secondary": None,
+            "target": "normal",
+            "type": "Rock",
+            "contestType": "Cool"
+        },
+        "conversion": {
+            "num": 160,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "The user's type changes to match the original type of the move in its first move slot. Fails if the user cannot change its type, or if the type is one of the user's current types.",
+            "shortDesc": "Changes user's type to match its first move.",
+            "id": "conversion",
+            "name": "Conversion",
+            "pp": 30,
+            "priority": 0,
+            "flags": {
+                "snatch": 1
+            },
+            "secondary": None,
+            "target": "self",
+            "type": "Normal",
+            "zMoveBoost": {
+                "atk": 1,
+                "def": 1,
+                "spa": 1,
+                "spd": 1,
+                "spe": 1
+            },
+            "contestType": "Beautiful"
+        },
+        "conversion2": {
+            "num": 176,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "The user's type changes to match a type that resists or is immune to the type of the last move used by the target, but not either of its current types. The determined type of the move is used rather than the original type. Fails if the target has not made a move, if the user cannot change its type, or if this move would only be able to select one of the user's current types.",
+            "shortDesc": "Changes user's type to resist target's last move.",
+            "id": "conversion2",
+            "name": "Conversion 2",
+            "pp": 30,
+            "priority": 0,
+            "flags": {
+                "authentic": 1
+            },
+            "secondary": None,
+            "target": "normal",
+            "type": "Normal",
+            "zMoveEffect": "heal",
+            "contestType": "Beautiful"
+        },
+        "copycat": {
+            "num": 383,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "The user uses the last move used by any Pokemon, including itself. Fails if no move has been used, or if the last move used was Assist, Baneful Bunker, Beak Blast, Belch, Bestow, Celebrate, Chatter, Circle Throw, Copycat, Counter, Covet, Destiny Bond, Detect, Dragon Tail, Endure, Feint, Focus Punch, Follow Me, Helping Hand, Hold Hands, King's Shield, Mat Block, Me First, Metronome, Mimic, Mirror Coat, Mirror Move, Nature Power, Protect, Rage Powder, Roar, Shell Trap, Sketch, Sleep Talk, Snatch, Spiky Shield, Spotlight, Struggle, Switcheroo, Thief, Transform, Trick, Whirlwind, or any Z - Move.",
+            "shortDesc": "Uses the last move used in the battle.",
+            "id": "copycat",
+            "name": "Copycat",
+            "pp": 20,
+            "priority": 0,
+            "flags": {},    
+            "secondary": None,
+            "target": "self",
+            "type": "Normal",
+            "zMoveBoost": {
+                "accuracy": 1
+            },
+            "contestType": "Cute"
+        },
+        "coreenforcer": {
+            "num": 687,
+            "accuracy": 100,
+            "basePower": 100,
+            "category": "Special",
+            "desc": "If the user moves after the target, the target's Ability is rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is Battle Bond, Comatose, Disguise, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode, this effect does not happen, and receiving the effect through Baton Pass ends the effect immediately.",
+            "shortDesc": "Noneifies the foe(s) Ability if the foe(s) move first.",
+            "id": "coreenforcer",
+            "isViable": True,
+            "name": "Core Enforcer",
+            "pp": 10,
+            "priority": 0,
+            "flags": {
+                "protect": 1,
+                "mirror": 1
+            },
+            "secondary": None,
+            "target": "allAdjacentFoes",
+            "type": "Dragon",
+            "zMovePower": 140,
+            "contestType": "Tough"
+        },
+        "corkscrewcrash": {
+            "num": 638,
+            "accuracy": True,
+            "basePower": 1,
+            "category": "Physical",
+            "shortDesc": "Power is equal to the base move's Z-Power.",
+            "id": "corkscrewcrash",
+            "isViable": True,
+            "name": "Corkscrew Crash",
+            "pp": 1,
+            "priority": 0,
+            "flags": {},
+            "isZ": "steeliumz",
+            "secondary": None,
+            "target": "normal",
+            "type": "Steel",
+            "contestType": "Cool"
+        },
+        "cosmicpower": {
+            "num": 322,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Raises the user's Defense and Special Defense by 1 stage.",
+            "shortDesc": "Raises the user's Defense and Sp. Def by 1.",
+            "id": "cosmicpower",
+            "name": "Cosmic Power",
+            "pp": 20,
+            "priority": 0,
+            "flags": {
+                "snatch": 1
+            },
+            "boosts": {
+                "def": 1,
+                "spd": 1,
+            },
+            "secondary": None,
+            "target": "self",
+            "type": "Psychic",
+            "zMoveBoost": {
+                "spd": 1
+            },
+            "contestType": "Beautiful"
+        },
+        "cottonguard": {
+            "num": 538,
+            "accuracy": True,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Raises the user's Defense by 3 stages.",
+            "shortDesc": "Raises the user's Defense by 3.",
+            "id": "cottonguard",
+            "isViable": True,
+            "name": "Cotton Guard",
+            "pp": 10,
+            "priority": 0,
+            "flags": {
+                "snatch": 1
+            },
+            "boosts": {
+                "def": 3,
+            },
+            "secondary": None,
+            "target": "self",
+            "type": "Grass",
+            "zMoveEffect": "clearnegativeboost",
+            "contestType": "Cute"
+        },
+        "cottonspore": {
+            "num": 178,
+            "accuracy": 100,
+            "basePower": 0,
+            "category": "Status",
+            "desc": "Lowers the target's Speed by 2 stages.",
+            "shortDesc": "Lowers the target's Speed by 2.",
+            "id": "cottonspore",
+            "name": "Cotton Spore",
+            "pp": 40,
+            "priority": 0,
+            "flags": {
+                "powder": 1,
+                "protect": 1,
+                "reflectable": 1,
+                "mirror": 1
+            },
+            "boosts": {
+                "spe": -2,
+            },
+            "secondary": None,
+            "target": "allAdjacentFoes",
+            "type": "Grass",
+            "zMoveEffect": "clearnegativeboost",
+            "contestType": "Beautiful"
+        },
+        "counter": {
+            "num": 68,
+            "accuracy": 100,
+            "basePower": 0,
+            "category": "Physical",
+            "desc": "Deals damage to the last opposing Pokemon to hit the user with a physical attack this turn equal to twice the HP lost by the user from that attack. If the user did not lose HP from the attack, this move deals 1 HP of damage instead. If that opposing Pokemon's position is no longer in use and there is another opposing Pokemon on the field the damage is done to it instead.Only the last hit of a multi - hit attack is counted. Fails if the user was not hit by an opposing Pokemon's physical attack this turn.",
+            "shortDesc": "If hit by physical attack, returns double damage.",
+            "id": "counter",
+            "name": "Counter",
+            "pp": 20,
+            "priority": -5,
+            "flags": {
+                "contact": 1,
+                "protect": 1
+            },
+            "secondary": None,
+            "target": "scripted",
+            "type": "Fighting",
+            "zMovePower": 100,
+            "contestType": "Tough"
+        },
+        "covet": {
+            "num": 343,
+            "accuracy": 100,
+            "basePower": 60,
+            "category": "Physical",
+            "desc": "If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+            "shortDesc": "If the user has no item, it steals the target's.",
+            "id": "covet",
+            "name": "Covet",
+            "pp": 25,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+        },
+        "crabhammer": {
+            "num": 152,
+            "accuracy": 90,
+            "basePower": 100,
+            "category": "Physical",
+            "desc": "Has a higher chance for a critical hit.",
+            "shortDesc": "High critical hit ratio.",
+            "id": "crabhammer",
+            "isViable": True,
+            "name": "Crabhammer",
+            "pp": 10,
+            "priority": 0,
+            "flags": {
+                "contact": 1,
+                "protect": 1,
+                "mirror": 1
+            },
+            "critRatio": 2,
+            "secondary": None,
+            "target": "normal",
+            "type": "Water",
+            "zMovePower": 180,
+            "contestType": "Tough"
+        },
                 "craftyshield": {
                     "num": 578,
                     "accuracy": True,
