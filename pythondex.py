@@ -7,6 +7,7 @@ import sys, os
 def check_pokedex():
     print('Testing integrity data, please wait...')
     data = []
+    count_error = 0
     for pokemon in get_pokemon_data().keys():
         learnset = get_pokemon_learnset(str(pokemon))
         if learnset is not None:
@@ -16,6 +17,7 @@ def check_pokedex():
                 except:
                     if move not in data:
                         data.append(move)
+                        count_error+=1
     print('These attack are not in dex: ')
     print(data)
 
