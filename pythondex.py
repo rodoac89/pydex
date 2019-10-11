@@ -7,19 +7,26 @@ import sys, os
 def check_pokedex():
     print('Testing integrity data, please wait...')
     data = []
+    ok_data = []
     count_error = 0
+    count_ok = 0
     for pokemon in get_pokemon_data().keys():
         learnset = get_pokemon_learnset(str(pokemon))
         if learnset is not None:
             for move in learnset:
                 try:
-                    get_move(move)['name']
+                    ok_data.append(get_move(move)['name'])
+                    count_ok += 1
                 except:
                     if move not in data:
                         data.append(move)
                         count_error+=1
-    print('These attack are not in dex: ')
-    print(data)
+    if count_error > 0:
+        print(data)
+        print('We found {} errors.\nThese attack are not in dex: '.format(count_error))
+    else:
+        print('No error found')
+    print('Data ok ', count_ok)
 
 # Args
 argumentos = sys.argv
@@ -93,9 +100,9 @@ while(pokedex_on):
                 new_name_pokemon = str(form_pokemon["species"]).split('-')
                 print ("  - ", new_name_pokemon[1], new_name_pokemon[0])
         print('Movimientos que puede aprender el pokémon: ')
-        #for move in get_pokemon_learnset(name_pokemon):
+        for move in get_pokemon_learnset(name_pokemon):
 
-            #print('  - ', str(get_move(move)['name']))
+            print('  - ', str(get_move(move)['name']))
     else:
         print("Pokemon no encontrado :(")
 
