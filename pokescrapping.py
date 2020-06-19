@@ -5,13 +5,19 @@ import cv2
 import numpy as np
 import urllib.request
 import time
-import os.path
+import os
 import sys
 import subprocess 
+import logging
 from pathlib import Path
 
 
 FOLDER = 'pokemon_images/'
+LOG_FILE = os.path.join('.','scrapping.log')
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s : %(levelname)s : %(message)s',
+                    filename = LOG_FILE,
+                    filemode = 'w',)
 
 def check_folder():
     '''
@@ -27,50 +33,42 @@ def create_folder():
     mkdir = 'md' if sys.platform == 'win32' else 'mkdir'
     subprocess.call([mkdir, 'pokemon_images'])
 
-
-def download_photos():
+def download_photo(pnum):
     '''
-    Esta funcion descarga todas las imagenes desde Pokemon.com
-    NOTA: Esta función aún es un WIP, ya que se necesita saber la cantidad exacta de pokemon a descargar
-    además no está considerando las formas regionales
+    Esta funcion descargar la imagen bajo demanda desde Pokemon.com
     '''    
 
     if not check_folder():
         create_folder()
+    
+    try:
+        req = urllib.request.Request(
+            'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/' + '{:03d}'.format(pnum) + '.png')
+        response = urllib.request.urlopen(req)
+        rr = response.read()
+        ba = bytearray(rr)
+        image = np.asarray(ba, dtype="uint8")
+        image = cv2.imdecode(image, cv2.IMREAD_UNCHANGED)
+        cv2.imwrite(FOLDER + '{:04d}'.format(pnum) + ".png", image)
+        
+        logging.info('Imagen del pokémon {} descargada exitosamente'.format(pnum) )
+        return True
 
-    start_time = time.time()
+    except Exception as e:
+        logging.error('Error al intentar descargar la imagen')
+        return False
+        # print("Error Occured for Pokemon " + '{:04d}'.format(pnum))
+        # print(str(e))
 
-    for i in range(1, 806):
-        try:
-            req = urllib.request.Request(
-                'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/' + '{:03d}'.format(i) + '.png')
-            response = urllib.request.urlopen(req)
-            rr = response.read()
-            ba = bytearray(rr)
-            image = np.asarray(ba, dtype="uint8")
-            image = cv2.imdecode(image, cv2.IMREAD_UNCHANGED)
-            cv2.imwrite(FOLDER + '{:04d}'.format(i) + ".png", image)
-            print("Saved " + '{:04d}'.format(i) + ".png")
-            # try:            
-            #     print("Buscando formas...")
-            #     for j in range(1,10):
-            #         requ = urllib.request.Request(
-            #         'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/' + '{:03d}'.format(i) + '_f' + j + '.png')
-            #         responses = urllib.request.urlopen(requ)
-            #         rrr = response.read()
-            #         bas = bytearray(rrr)
-            #         images = np.asarray(bas, dtype="uint8")
-            #         images = cv2.imdecode(images, cv2.IMREAD_UNCHANGED)
-            #         cv2.imwrite(FOLDER + '{:04d}'.format(i) + '_f' + j + '.png', image)
-            #         print("Saved " + '{:04d}'.format(i) + ".png")
-            
-            # except Exception as e:
-            #     print("No tiene mas formas ",e )
-            
-        except Exception as e:
-            print("Error Occured for Pokemon " + '{:04d}'.format(i))
-            print(str(e))
-            
-    end_time = time.time()
-    print("Done")
-    print("Time Taken = ", end_time - start_time, "sec")
+def scrapping():
+    '''
+    Esta función llama a la función `download_photo` la cual descarga la foto del pokémon según su número
+    NOTA: Esta función aún es un WIP, ya que se necesita saber la cantidad exacta de pokemon a descargar
+    además no está considerando las formas regionales
+    '''    
+    last_poke = 806
+    for i in range(1, last_poke):
+        download_photo(i)
+        print('Descargando imágenes, porfavor espere...',int(i/last_poke*100), '% completado                    \r', end='')
+    print('Listo')
+
