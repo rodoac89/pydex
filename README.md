@@ -1,4 +1,4 @@
-# PyDex
+# PyDex Beta
 Pokédex en consola de Python
 
 **Nota: Esta aplicación no está afiliada ni con Nintendo ni con The Pokémon Company.**
@@ -6,13 +6,19 @@ Pokédex en consola de Python
 ## Instalación de módulos necesarios de PyDex y comprobación de datos
 
 * Ejecutar: `pip install -r requirements.txt` para instalar los módulos.
-* Ejecutar: `python pydex.py scrap` Para descargar las imagénes de los Pokémon
-* Ejecutar: `python pydex.py check` Para verificar la integridad de los datos y si la base de datos se encuentra dentro del directorio
+
+## PyDex soporta argumentos opcionales
+
+* `python pydex.py -s [--scrap]` Para descargar las imagénes desde el sitio oficial de Pokémon (opcional)
+* `python pydex.py -c [--check]` Para verificar la integridad de los datos y si la base de datos se encuentra dentro del directorio
+* `python pydex.py -p POKE[-pPOKE, --pokemon=POKE]` carga los datos del pokemon sin encender PyDex (opcional)
 
 ## Uso de Pydex
-Para iniciar se debe ejecutar: `python pydex.py`
+Para encender PyDex se debe ejecutar: `python pydex.py`
 
 Una vez iniciado sólo debe escribir el nombre del pokémon deseado y precionar `Enter`.
+
+PyDex traerá la información del Pokémon deseado y mostrará la imagen del Pokémon en `ASCII`. Si no la tiene, PyDex la descargará automáticamente desde el sitio oficial de pokemon.
 
 Por ejemplo, si su pokémon buscado es **Latias** el resultado será:
 
@@ -163,3 +169,5 @@ Movimientos que puede aprender el pokémon:
   -  Wish
   -  Zen Headbutt
 ```
+## Agradecimientos
+@ahumeniy por la sugerencia de descarga de imágenes bajo demanda

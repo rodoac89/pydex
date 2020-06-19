@@ -23,19 +23,19 @@ def print_asciiart(num_pokemon = 0):
         try:
             return Image.open(image_file)
         except:
+            print("Obteniendo imagen, porfavor espere...\r", end='')
             if download_photo(num_pokemon):
                 return Image.open(image_file)
             else:
                 print('No se logró encontrar la imagen para el pokémon seleccionado')
                 return None
+    
     # Configuración del asciiart
     chars = numpy.asarray(list(' .,:;irsXA253hMHGS#9B&@'))
     SC = float(0.15)
     GCF = float(1) 
     WCF = 7.0/4.0
-
     
-
     # Impresión del pokémon en la consola
 
     img_pokemon = get_image()
@@ -44,8 +44,7 @@ def print_asciiart(num_pokemon = 0):
         img_pokemon = numpy.sum( numpy.asarray(img_pokemon.resize(S), dtype="float"), axis=2)
         img_pokemon -= img_pokemon.min()
         img_pokemon = (1.0 - img_pokemon/img_pokemon.max())**GCF*(chars.size-1)
-
-        print( "\n".join(("".join(r) for r in chars[img_pokemon.astype(int)])))
+        print("\n".join(("".join(r) for r in chars[img_pokemon.astype(int)])))
         print()
     
 
