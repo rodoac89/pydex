@@ -5,13 +5,15 @@ import cv2
 import numpy as np
 import urllib.request
 import time
-import os.path
+import os
 import sys
 import subprocess 
+import logging
 from pathlib import Path
 
 
 FOLDER = 'pokemon_images/'
+LOG_FILE = os.path.join('.','scrapping.log')
 
 def check_folder():
     '''
@@ -74,3 +76,37 @@ def download_photos():
     end_time = time.time()
     print("Done")
     print("Time Taken = ", end_time - start_time, "sec")
+
+def download_photo(pnum):
+    '''
+    Esta funcion descargar la imagen bajo demanda desde Pokemon.com
+    '''    
+
+    if not check_folder():
+        create_folder()
+    
+    try:
+        req = urllib.request.Request(
+            'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/' + '{:03d}'.format(pnum) + '.png')
+        response = urllib.request.urlopen(req)
+        rr = response.read()
+        ba = bytearray(rr)
+        image = np.asarray(ba, dtype="uint8")
+        image = cv2.imdecode(image, cv2.IMREAD_UNCHANGED)
+        cv2.imwrite(FOLDER + '{:04d}'.format(pnum) + ".png", image)
+        logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s : %(levelname)s : %(message)s',
+                    filename = LOG_FILE,
+                    filemode = 'w',)
+        logging.info('Imagen del pokémon {} descargada exitosamente'.format(pnum) )
+        return True
+
+    except Exception as e:
+        logging.basicConfig(level=logging.ERROR,
+                    format='%(asctime)s : %(levelname)s : %(message)s',
+                    filename = LOG_FILE,
+                    filemode = 'w',)
+        logging.error('Error al intentar descargar la imagen')
+        return False
+        # print("Error Occured for Pokemon " + '{:04d}'.format(pnum))
+        # print(str(e))

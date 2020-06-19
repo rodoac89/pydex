@@ -1,4 +1,5 @@
 from PIL import Image
+from pokescrapping import download_photo
 import numpy 
 import json
 
@@ -17,17 +18,28 @@ def print_asciiart(num_pokemon = 0):
     '''
     Imprime en pantalla el asciiart del pokemon consultado
     '''
+    def get_image():
+        image_file = 'pokemon_images/'+ '{:04d}'.format(num_pokemon)+'.png'            
+        try:
+            return Image.open(image_file)
+        except:
+            if download_photo(num_pokemon):
+                return Image.open(image_file)
+            else:
+                print('No se logró encontrar la imagen para el pokémon seleccionado')
+                return None
     # Configuración del asciiart
     chars = numpy.asarray(list(' .,:;irsXA253hMHGS#9B&@'))
-    f = ''
     SC = float(0.15)
     GCF = float(1) 
     WCF = 7.0/4.0
 
+    
+
     # Impresión del pokémon en la consola
-    try:
-        f = 'pokemon_images/'+ '{:04d}'.format(num_pokemon)+'.png'
-        img_pokemon = Image.open(f)
+
+    img_pokemon = get_image()
+    if img_pokemon is not None:
         S = (int(img_pokemon.size[0]*SC*WCF), int(img_pokemon.size[1]*SC))
         img_pokemon = numpy.sum( numpy.asarray(img_pokemon.resize(S), dtype="float"), axis=2)
         img_pokemon -= img_pokemon.min()
@@ -35,8 +47,7 @@ def print_asciiart(num_pokemon = 0):
 
         print( "\n".join(("".join(r) for r in chars[img_pokemon.astype(int)])))
         print()
-    except:
-        print('No se logró encontrar la imagen para el pokémon seleccionado')
+    
 
 def get_data(pokemon=None):
     pokemon_data = load_db('pokemon')

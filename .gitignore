@@ -2,3 +2,4 @@ pokemon_images/
 *pyc
 __pycache__/
 .vscode/
+*.log

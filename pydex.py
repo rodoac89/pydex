@@ -3,7 +3,7 @@ PyDex Beta 0.1
 PyDex nace producto del ocio que tuve hace unos años y las ganas que tenía por desarrollar mi propia pokedex
 PyDex permite hacer scrapping básico a pokemon.com para obtener las imagenes de los pokemon actuales
 y así poder mostrarlos por consola en ascii.
-Este script aún está en desarrollo, si quieren contribuir puede hacerlo sin problemas
+Este script aún está en desarrollo, si quieren contribuir pueden hacerlo sin problemas
 rodoaravena
 """
 from dex import check_dex, get_data, get_learnset, get_move, print_asciiart
@@ -37,8 +37,7 @@ while(dex_on):
     if dex_data is not None:
         # Integracion de ascii art para mostrar imagen ascii del pokémon
         print('Imagen del Pokémon: \n')
-        if check_folder():
-            print_asciiart(dex_data['num'])
+        print_asciiart(dex_data['num'])
 
         # Muestra los datos principales del pokémon
         print ("\nNumero del Pokémon: ", dex_data['num'])
