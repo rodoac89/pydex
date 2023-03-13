@@ -170,4 +170,4 @@ Movimientos que puede aprender el pokémon:
   -  Zen Headbutt
 ```
 ## Agradecimientos
-[@ahumeniy] (https://www.github.com/ahumeniy) por la sugerencia de descarga de imágenes bajo demanda
+[@ahumeniy](https://www.github.com/ahumeniy) por la sugerencia de descarga de imágenes bajo demanda
